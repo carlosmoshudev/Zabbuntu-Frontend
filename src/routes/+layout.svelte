@@ -1,53 +1,55 @@
 <script>
+	import { onMount } from 'svelte';
 	import Header from './Header.svelte';
 	import './styles.css';
+
+	onMount (() => {
+		window.addEventListener('scroll', () => {
+			const mainContainer = document.getElementById('main');
+			mainContainer?.style.setProperty('background-position-y', `${window.scrollY}px`);
+			console.log(window.scrollY);
+		})
+	});
+
 </script>
 
 <div class="app">
 	<Header />
 
 	<main>
+		<div id='main' class='blur-bg'></div>
 		<slot />
 	</main>
 
 	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
+		<p>Monitoring Dashboard by <a href="http://www.trisonworld.com"> TRISON </a>© 1998 - 2022 </p>
 	</footer>
 </div>
 
 <style>
-	.app {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-	}
-
+	/**center the main*/
 	main {
-		flex: 1;
 		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 64rem;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
-
-	footer {
-		display: flex;
-		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		padding: 12px;
+
+
+	}
+	.blur-bg {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		top: 100px;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-image: url('/src/lib/images/porsche.png');
+		background-repeat: no-repeat;
+		background-position-x: center;
+		background-size: 50%;
+		filter: blur(5px);
+		z-index: -1;
 	}
 
-	footer a {
-		font-weight: bold;
-	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
-		}
-	}
 </style>
