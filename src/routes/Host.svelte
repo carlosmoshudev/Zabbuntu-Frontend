@@ -1,57 +1,66 @@
 <script lang="ts">
-	export let name: string;
-	export let ip: string;
-	export let status: string;
+	export let host: any;
 </script>
 
-<div class="host">
-	<h2 class="host-name">{name}</h2>
-	<!--If status is 1 then it's online-->
-	{#if status == '1'}
-		<span>Status:</span> <strong class="online">ONLINE</strong>
-	{:else}
-		<span>Status:</span> <strong class="offline">OFFLINE</strong>
-	{/if}
-</div>
+<section>
+	<div class="host">
+		<div class="host-name">
+			{host.name}
+		</div>
+		<div class="status">
+			{#each host.items as item}
+				{#if item.name === 'Zabbix agent ping'}
+					{#if item.lastvalue === '0'}
+						Status: <span class="offline">Offline</span>
+					{:else if item.lastvalue === '1'}
+						Status: <span class="online">Online</span>
+					{:else}
+						Status: <span class="unknown">{item.lastvalue}</span>
+					{/if}
+				{/if}
+			{/each}
+		</div>
+	</div>
+</section>
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
 	.host {
-        font-family: 'Montserrat';
-        font-weight: extralight;
-        width: 350px;
-		height: 100px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: left;
+		width: 300px;
+		height: 20px;
 		margin: 10px;
-		padding: 10px;
-        border-radius: 35px;
-        background: #dadada;
-        box-shadow:  13px -13px 20px #c2c2c2;
-		/**box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.19);**/
+		padding: 20px;
+		border: 1px solid var(--color-theme-1);
+		border-radius: 10px;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		cursor: pointer;
+		background-color: var(--color-bg-1);
 	}
 
-	/*
-    *   Host name is bold and colored, centered and top aligned
-    */
 	.host-name {
-		color: #ffffff;
-		text-align: center;
-		vertical-align: top;
-		border-bottom: 1px solid #ffffff;	}
-	span {
-		font-weight: bold;
-		color: var(--color-theme-2);
+		font-size: 18px;
+		font-weight: 700;
 	}
-	strong {
-		color: var(--color-theme-1);
+
+	.status {
+		font-size: 14px;
 	}
-	.online {
-		color: var(--online);
-        text-shadow: #5e5e5e 0px 0px 5px;
-	}
+
 	.offline {
-		color: var(--offline);
+		color: red;
 	}
+
+	.online {
+		color: green;
+	}
+
 	.unknown {
-		color: var(--unknown);
+		color: gray;
 	}
+
 </style>

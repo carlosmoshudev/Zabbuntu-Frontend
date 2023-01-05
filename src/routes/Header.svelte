@@ -1,7 +1,6 @@
 <script>
 	import { page } from '$app/stores';
 	import logo from '$lib/images/zabbix.png';
-	import github from '$lib/images/porsche.png';
 </script>
 
 <header>
@@ -19,10 +18,10 @@
 			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
 				<a href="/">Dashboard</a>
 			</li>
-			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
+			<li aria-current={$page.url.pathname === '/support' ? 'page' : undefined}>
 				<a href="/about">Trison Support</a>
 			</li>
-			<li aria-current={$page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}>
+			<li aria-current={$page.url.pathname.startsWith('/reboot') ? 'page' : undefined}>
 				<a href="/sverdle">Reboot</a>
 			</li>
 		</ul>
@@ -38,11 +37,13 @@
 	header {
 		display: flex;
 		justify-content: space-between;
+		margin: 0;
+		padding: 0;
 	}
 
 	.corner {
 		width: 10em;
-		height: 10em;
+		height: 4em;
 	}
 
 	.corner a {
@@ -50,7 +51,7 @@
 		align-items: center;
 		justify-content: center;
 		width: 100%;
-		height: 100%;
+		height: 200%;
 	}
 
 	.corner img {
@@ -68,7 +69,7 @@
 	* nav links has theme 2 color
 	*/
 	nav a {
-		color: var(--color-theme-1);
+		color: var(--color-theme-2);
 	}
 
 	svg {

@@ -9,7 +9,9 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write ."
+		"format": "prettier --plugin-search-dir . --write .",
+		"deploy": "vite build && s3-deploy ./build/**/* --cwd ./build --region us-east-1 --bucket zabbuntu.carlosmoshu.com --delete-removed --cache-control 'max-age=31536000, public' --acl public-read",
+		"help": "vite deploy"
 	},
 	"devDependencies": {
 		"@fontsource/fira-mono": "4.5.10",

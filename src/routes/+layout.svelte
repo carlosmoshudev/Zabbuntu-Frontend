@@ -7,14 +7,13 @@
 		window.addEventListener('scroll', () => {
 			const mainContainer = document.getElementById('main');
 			mainContainer?.style.setProperty('background-position-y', `${window.scrollY}px`);
-			console.log(window.scrollY);
 		})
 	});
 
 </script>
 
 <div class="app">
-	<Header />
+	<div class="header"><Header /></div>
 
 	<main>
 		<div id='main' class='blur-bg'></div>
@@ -22,7 +21,7 @@
 	</main>
 
 	<footer>
-		<p>Monitoring Dashboard by <a href="http://www.trisonworld.com"> TRISON </a>© 1998 - 2022 </p>
+		<p>Monitoring Dashboard by <a href="/about"> TRISON </a>© 1998 - 2022 </p>
 	</footer>
 </div>
 
@@ -32,8 +31,6 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-
-
 	}
 	.blur-bg {
 		display: flex;
@@ -48,8 +45,30 @@
 		background-repeat: no-repeat;
 		background-position-x: center;
 		background-size: 50%;
-		filter: blur(5px);
+		filter: blur(4px);
 		z-index: -1;
 	}
 
+	footer {
+		position: sticky;
+		bottom: 0;
+		width: 100%;
+		height: 20px;
+		background-color: var(--color-bg-1);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-family: 'Montserrat', sans-serif;
+	}
+
+	footer p {
+		font-size: 0.8rem;
+		font-weight: 400;
+		letter-spacing: 3px;
+	}
+
+	footer a {
+		color: var(--color-theme-1);
+		font-weight: 700;
+	}
 </style>
