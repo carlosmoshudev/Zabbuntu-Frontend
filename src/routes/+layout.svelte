@@ -2,6 +2,11 @@
 	import { onMount } from 'svelte';
 	import Header from './Header.svelte';
 	import './styles.css';
+	/*
+	*	Using bootstrap 5.0.2
+	*/
+
+	import 'bootstrap/dist/css/bootstrap.min.css';
 
 	onMount (() => {
 		window.addEventListener('scroll', () => {
@@ -26,11 +31,25 @@
 </div>
 
 <style>
+	.header {
+		top: 0px;
+		width: 100%;
+		height: 100px;
+		background-color: var(--color-theme-3);
+	}
+	.app {
+		display: flex;
+		flex-direction: column;
+		height: 100vh;
+		background-color: #ffffff00;
+	}
 	/**center the main*/
 	main {
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		width: 100%;
+		background-color: var(--color-theme-3);
 	}
 	.blur-bg {
 		display: flex;
@@ -47,11 +66,13 @@
 		background-size: 50%;
 		filter: blur(4px);
 		z-index: -1;
+		background-color: #ffffff00;
+
 	}
 
 	footer {
 		position: sticky;
-		bottom: 0;
+		bottom: 0px;
 		width: 100%;
 		height: 20px;
 		background-color: var(--color-bg-1);
@@ -62,13 +83,18 @@
 	}
 
 	footer p {
-		font-size: 0.8rem;
+		font-size: 0.7rem;
 		font-weight: 400;
-		letter-spacing: 3px;
+		letter-spacing: 4px;
+		padding-top: 2px;
+		background-color: #ffffff00;
+
 	}
 
 	footer a {
 		color: var(--color-theme-1);
-		font-weight: 700;
+		font-weight: 600;
+		background-color: #ffffff00;
+
 	}
 </style>

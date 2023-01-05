@@ -19,10 +19,10 @@
 				<a href="/">Dashboard</a>
 			</li>
 			<li aria-current={$page.url.pathname === '/support' ? 'page' : undefined}>
-				<a href="/about">Trison Support</a>
+				<a href="/support">Trison Support</a>
 			</li>
 			<li aria-current={$page.url.pathname.startsWith('/reboot') ? 'page' : undefined}>
-				<a href="/sverdle">Reboot</a>
+				<a href="/reboot">Reboot</a>
 			</li>
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
@@ -63,13 +63,15 @@
 	nav {
 		display: flex;
 		justify-content: center;
-		--background: var(--color-bg-2);
+		--background: var(--color-bg-1);
+		color: var(--color-theme-1);
 	}
 	/*
 	* nav links has theme 2 color
 	*/
 	nav a {
-		color: var(--color-theme-2);
+		text-decoration: none;
+		color: var(--color-theme-1);
 	}
 
 	svg {
@@ -93,11 +95,13 @@
 		list-style: none;
 		background: var(--background);
 		background-size: contain;
+		letter-spacing: 3px;
 	}
 
 	li {
 		position: relative;
 		height: 100%;
+		letter-spacing: 3px;
 	}
 
 	li[aria-current='page']::before {
@@ -110,6 +114,7 @@
 		left: calc(50% - var(--size));
 		border: var(--size) solid transparent;
 		border-top: var(--size) solid var(--color-theme-1);
+		letter-spacing: 3px;
 	}
 
 	nav a {
@@ -117,7 +122,7 @@
 		height: 100%;
 		align-items: center;
 		padding: 0 0.5rem;
-		color: var(--color-text);
+		color: var(--color-theme-1);
 		font-weight: 700;
 		font-size: 0.8rem;
 		text-transform: uppercase;
@@ -127,6 +132,6 @@
 	}
 
 	a:hover {
-		color: var(--color-theme-1);
+		color: var(--color-theme-2);
 	}
 </style>

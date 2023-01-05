@@ -6,9 +6,11 @@
 	--font-mono: 'Fira Mono', monospace;
 	--color-bg-0: rgb(202, 216, 228);
 	--color-bg-1: hsl(209, 36%, 86%);
+	--color-bg-1b: hsl(209, 36%, 86%, 0.5);
 	--color-bg-2: hsl(224, 44%, 95%);
 	--color-theme-1: #118AB2;
 	--color-theme-2: #5e5e5e;
+	--color-theme-3: #118AB233;
 	--online: #A7C957;
 	--offline: #E63946;
 	--unknown: #F77F00;
