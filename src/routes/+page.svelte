@@ -186,6 +186,28 @@
 		grid-gap: 1rem;
 		padding: 1rem;
 	}
+	/**
+		Give modern style to the select element 
+	*/
+
+	.select-filter {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 1rem;
+	}
+	select {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="rgba(0,0,0,0.5)" d="M7 10l5 5 5-5z"/></svg>') no-repeat right 0.7rem center/8px 8px;
+		background-color: var(--online);
+		border: 1px solid var(--offline);
+		border-radius: 0.25rem;
+		padding: 0.5rem 2rem 0.5rem 0.5rem;
+		font-size: 1rem;
+		color: var(--text);
+	}
 
 	#modal {
 		position: sticky;

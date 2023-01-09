@@ -80,10 +80,15 @@
 	.status .unknown {
 		color: var(--unknown);
 	}
-
+		
 	.host-groups {
 		font-size: 0.7rem;
 		font-weight: 400;
+		display: flex;
+		flex-wrap: wrap;
+		padding: 0rem 2rem;
+		padding-top: 1rem;
+		justify-content: space-between;
 	}
 
 	.group-tag {
